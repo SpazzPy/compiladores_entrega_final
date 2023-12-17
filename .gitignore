@@ -1,0 +1,172 @@
+# Miscellaneous
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+.atom/
+.buildlog/
+.history
+.svn/
+migrate_working_dir/
+
+# IntelliJ related
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# The .vscode folder contains launch configuration and tasks you configure in
+# VS Code which you may wish to be included in version control, so this line
+# is commented out by default.
+#.vscode/
+
+# Flutter/Dart/Pub related
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+
+# Symbolication related
+app.*.symbols
+
+# Obfuscation related
+app.*.map.json
+
+# Android Studio will place build artifacts here
+/android/app/debug
+/android/app/profile
+/android/app/release
+
+# Ignore service and plugin files
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.*
+
+# Ignore Generated.xcconfig
+**/ios/Flutter/Generated.xcconfig
+
+# Ignore Flutter app keys
+**/ios/Runner/App.framework
+**/ios/Runner/FlutterApp.framework
+**/ios/Flutter/App.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/flutter_assets/
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.*
+
+# Ignore Pod-related files
+**/ios/Pods/
+**/ios/Podfile.lock
+**/ios/Podfile
+**/ios/.symlinks/
+**/ios/Flutter/Flutter.podspec
+**/ios/.symlinks/plugins/**/*.ios
+**/ios/.symlinks/plugins/*/*.podspec
+
+# General
+.DS_Store
+.idea/
+.packages
+.pub/
+/build/
+
+# Here's a handy guide to excluding file types:
+# * Text files
+*.txt
+# * Documentation files
+*.doc
+*.docx
+*.md
+*.pdf
+*.rtf
+*.tex
+*.txt
+# * Image files
+*.bmp
+*.gif
+*.jpg
+*.jpeg
+*.png
+*.svg
+*.tif
+*.tiff
+# * Audio files
+*.mp3
+*.wav
+*.wma
+# * Video files
+*.avi
+*.flv
+*.m4v
+*.mov
+*.mpg
+*.rm
+*.swf
+*.vob
+*.wmv
+
+# If you are using Gradle, you might want to ignore the .gradle directory
+.gradle/
+
+# If you are using Firebase, ignore the Google Services json
+**/android/app/google-services.json
+
+# If you are using macOS, ignore the macOS metadata
+**/.DS_Store
+
+# If you are using the Flutter web, ignore the generated files
+**/web/favicon.png
+**/web/icons/Icon-*
+**/web/manifest.json
+**/web/assets/AssetManifest.json
+**/web/assets/FontManifest.json
+**/web/assets/NOTICES
+**/web/assets/fonts/MaterialIcons-Regular.otf
+
+# If you are using package_info_plus, ignore the version.dart file
+lib/.version.dart
+
+# Ignore crashlytics related files
+**/ios/Crashlytics.framework
+**/ios/Flutter/Flutter.framework
+**/ios/Flutter/App.framework
+**/ios/Flutter/flutter_assets/
+**/ios/Flutter/flutter_export_environment.sh
+
+# Ignore Xcode related files
+**/ios/.generated/
+**/ios/Flutter/app.flx
+**/ios/Flutter/app.zip
+**/ios/Flutter/flutter_assets/
+**/ios/ServiceDefinitions.json
+**/ios/Runner/GeneratedPluginRegistrant.*
+
+# Ignore Android keystores
+**/android/key.properties
+**/android/.gradle
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/gradle-wrapper.jar
+**/android/.gradle
+**/android/**/.DS_Store
+
+# Ignore sensitive data
+**/lib/secrets.dart
+
+# Ignore Flutter build directory
+**/build/
+
+# Ignore pubspec lock file
+pubspec.lock
+
+# Ignore all log files
+*.log
+
+# Ignore all .env files
+*.env
