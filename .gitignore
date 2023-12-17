@@ -170,3 +170,6 @@ pubspec.lock
 
 # Ignore all .env files
 *.env
+
+# Ignore .vscode folder
+.vscode/
