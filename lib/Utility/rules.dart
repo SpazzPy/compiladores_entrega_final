@@ -1,10 +1,3 @@
-String ID_ = "Identificador:";
-String string_ = "String:";
-String int_ = "Int:";
-String array_ = "Array:";
-String symbol_ = "Símbolo:";
-String error_ = "Error:";
-
 String invalidNumber1ID = "in1";
 
 String invalidVariable1ID = "vn2";
@@ -40,7 +33,7 @@ String invalidVariable1 = '$variableRegex $numberRegex|$variableRegex $variableR
 String invalidOperator1 = '(\\+ ?\\+|- ?-)|(\\- ?\\+)|$operatorRegex ?[\\*/\\^\\!]';
 String invalidOperator2 = '\\( ?[\\*/\\^\\!]|$operatorRegex ?\\)';
 String invalidOperator3 = '$operatorRegex ?\$';
-String invalidOperator4 = '$variableRegex ?\\(';
+String invalidOperator4 = '$variableRegex ?\\(|sqrt ?';
 
 // Estos son los tokens que no se pueden usar
 List invalidRegexID = [
