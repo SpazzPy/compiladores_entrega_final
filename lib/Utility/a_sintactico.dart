@@ -46,6 +46,7 @@ Response aSintactico(Response lexicResponse) {
       return response;
     }
 
+    // Revisa si los paréntesis estan balanceados
     response = balanceOpenCloseElements(line, response, "(", ")", "Los paréntesis");
     if (!response.successful) {
       return response;
@@ -58,6 +59,7 @@ Response aSintactico(Response lexicResponse) {
   }
   response.value = response.value.replaceAll(" }", "\n}");
 
+  // Revisa si las llaves estan balanceadas
   response = balanceOpenCloseElements(response.value, response, "{", "}", "Las llaves");
   if (!response.successful) {
     return response;
@@ -126,15 +128,14 @@ Response processEquation(List<String> equation, Response r) {
   return r;
 }
 
+// Revisa si los elementos de apertura y cierre estan balanceados
 Response balanceOpenCloseElements(String content, Response r, String openElement, String closeElement, String elementName) {
   int openCount = 0;
   int closeCount = 0;
 
   for (int i = 0; i < content.length; i++) {
-    // ignore: unrelated_type_equality_checks
     if (content[i] == openElement) {
       openCount++;
-      // ignore: unrelated_type_equality_checks
     } else if (content[i] == closeElement) {
       closeCount++;
     }

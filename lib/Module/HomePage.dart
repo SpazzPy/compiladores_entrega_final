@@ -12,7 +12,6 @@ import 'package:compiladores_entrega_final/Widgets/c_container.dart';
 import 'package:compiladores_entrega_final/Widgets/c_text_field.dart';
 import 'package:flutter/services.dart';
 
-// Definimos la clase Home que es un StatefulWidget
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -20,7 +19,6 @@ class Home extends StatefulWidget {
   HomePage createState() => HomePage();
 }
 
-// Definimos la clase HomePage que es el estado de Home
 class HomePage extends State<Home> {
   TextEditingController textController = TextEditingController();
   Response lexicResponse = Response();
@@ -29,9 +27,9 @@ class HomePage extends State<Home> {
   Response symbolTableResponse = Response();
   Response intermediateResponse = Response();
   TextEditingController jsResultController = TextEditingController();
+
   // Definimos el número máximo de líneas para el texto por defecto
   int maxLines = 26;
-  // Inicializamos el estado
   @override
   void initState() {
     // Establecemos el texto por defecto
@@ -39,12 +37,10 @@ class HomePage extends State<Home> {
     super.initState();
   }
 
-  // Definimos el método build que construye la interfaz de usuario
   @override
   Widget build(BuildContext context) {
     // Definimos la lógica del compilador
     void compilerLogic(String content) {
-      // Eliminamos los espacios en blanco
       content = content.trim();
 
       // Actualizamos el estado después de que se haya completado el frame
@@ -72,30 +68,24 @@ class HomePage extends State<Home> {
       String content = value;
       List<String> lines = value.split('\n');
 
-      // Get the current cursor position
       int cursorPos = textController.selection.start;
 
-      // If the cursor position doesn't exist, set it to the end of the text
+      // Coloca el cursor al inicio si el texto está vacío o si el cursor está fuera del rango
       if (cursorPos < 0 || cursorPos > value.length) {
         cursorPos = 0;
       }
 
-      // Insert the new value at the cursor position
+      // Insertar el valor en la posición del cursor
       String newValue = value.substring(0, cursorPos) + insertValue + value.substring(cursorPos);
 
-      // If the number of lines is less than the maximum allowed
       if (lines.length < maxLines) {
-        // Add new lines to the text until reaching the maximum allowed
         newValue += '\n' * (maxLines - lines.length);
       }
 
-      // Execute the compiler logic
       compilerLogic(newValue);
 
-      // Update the text and cursor position after the widget has been built
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) {
-          // Check if the widget is still in the tree
           setState(() {
             textController.text = newValue;
             textController.selection = TextSelection.collapsed(offset: cursorPos + insertValue.length);
@@ -104,6 +94,7 @@ class HomePage extends State<Home> {
       });
     }
 
+    // Limpiar el texto y luego enviarlo al codigo fuente
     void pasteCodeIntoSource(String code) {
       code = code.split('\n').map((line) => line.trim()).join('\n');
       handleTextEmptiness(textController.text, insertValue: code);

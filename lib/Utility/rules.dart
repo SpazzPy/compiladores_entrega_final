@@ -5,12 +5,6 @@ String array_ = "Array:";
 String symbol_ = "Símbolo:";
 String error_ = "Error:";
 
-// List<String> ids = [paperID, circleID, rectID, lineID, ellipseID];
-
-// Map<String, RegExp> aLexicRulesVariables = {
-//   for (var id in ids) id: RegExp('^$id\$'),
-// };
-
 String invalidNumber1ID = "in1";
 
 String invalidVariable1ID = "vn2";
@@ -48,6 +42,7 @@ String invalidOperator2 = '\\( ?[\\*/\\^\\!]|$operatorRegex ?\\)';
 String invalidOperator3 = '$operatorRegex ?\$';
 String invalidOperator4 = '$variableRegex ?\\(';
 
+// Estos son los tokens que no se pueden usar
 List invalidRegexID = [
   invalidNumber1ID,
   invalidVariable1ID,
@@ -57,6 +52,7 @@ List invalidRegexID = [
   invalidOperator4ID,
 ];
 
+// Estos son los tokens que se pueden y no pueden usar
 Map<String, String> aLexicRulesValues = {
   printID: printRegex,
   sqrtID: sqrtRegex,
@@ -73,8 +69,10 @@ Map<String, String> aLexicRulesValues = {
   numberID: numberRegex,
 };
 
+// Las llaves de los regex
 List<String> aLexicRulesKeys = aLexicRulesValues.keys.toList();
 
+// Regex especiales
 String newLineID = "NewLine";
 String loopStartRegex = "{";
 String loopEndRegex = "} ?\\* ?([2-9]|[1-9][0-9])\$";

@@ -14,7 +14,6 @@ Response tablaSimbolo(Response semanticResult) {
   response.parseResult = semanticResult.parseResult;
   String lexicContent = semanticResult.lexicResult;
 
-  // Split lexicContent into lines
   List<String> lines = lexicContent.split('\n');
 
   List<Map<String, String>> objs = [];
@@ -43,6 +42,7 @@ Response tablaSimbolo(Response semanticResult) {
       tokenValue = 'Instrucción';
     }
 
+    // Agregar a la lista de objetos para la tabla
     Map<String, String> obj = {
       'a': count.toString(),
       'b': tokenType,

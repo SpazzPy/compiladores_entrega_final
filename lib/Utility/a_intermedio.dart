@@ -39,22 +39,27 @@ Response codigoIntermedio(Response parseResult) {
       blocks[loopLevel] = StringBuffer();
     } else if (line.contains('}')) {
       var match = regExp.firstMatch(line);
+
       if (match != null) {
         loopMultipliers[loopLevel - 1] = match.group(1)!;
       }
 
       String loopContent = blocks[loopLevel]!.toString();
       loopLevel--;
+
+      // Si el ciclo tiene contenido y es del mismo nivel anterior, se agrega el contenido al bloque anterior
       if (loopContent.isNotEmpty && loopMultipliers.containsKey(loopLevel)) {
         String loopHeader = '${indent * (loopLevel + 1)}for (let i$loopLevel = 0; i$loopLevel < ${loopMultipliers[loopLevel]}; i$loopLevel++) {\n';
         blocks[loopLevel]!.write(loopHeader);
         blocks[loopLevel]!.write(loopContent);
         blocks[loopLevel]!.write('${indent * (loopLevel + 1)}}\n');
         loopMultipliers.remove(loopLevel);
+        // Si el ciclo tiene contenido y es de un nivel anterior, se agrega indentacion y cierra el ciclo
       } else if (loopContent.isNotEmpty) {
         blocks[loopLevel]!.write(loopContent);
         blocks[loopLevel]!.write('${indent * (loopLevel + 1)}}\n');
       }
+      // Al finalizar, se elimina el ciclo actual
       blocks.remove(loopLevel + 1);
     } else if (line.contains('=')) {
       blocks[loopLevel]!.write('${indent * (loopLevel + 1)}$line;\n');
